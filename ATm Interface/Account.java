@@ -6,6 +6,9 @@
         private double balance;
 
         // Constructor
+        public String accountHolder (){
+            return accountHolder;
+        }
         public Account(String accountNumber, String accountHolder, double initialBalance) {
             this.accountNumber = accountNumber;
             this.accountHolder = accountHolder;
@@ -14,17 +17,22 @@
 
         // Method to deposit money
         public void deposit(double amount) {
+
             balance += amount;
+            System.out.println(balance);
         }
 
         // Method to withdraw money
-        public void withdraw(double amount) {
+        public double withdraw(double amount) {
             if (amount <= balance) {
                 balance -= amount;
+                return balance; // Withdrawal successful
             } else {
-                System.out.println("Insufficient funds!");
+                return balance; // Insufficient funds, withdrawal failed
             }
         }
+
+
 
         // Method to get account balance
         public double getBalance() {
